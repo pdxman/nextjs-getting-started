@@ -1,17 +1,27 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import Link from 'next/Link'; 
+import { useState } from 'react';
+
 
 export default function Home() {
+
+  const [likes, setLikes] = useState(0);
+
+  function handleLikes (){
+    setLikes(likes + 1); 
+  }
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
+      <button onClick={handleLikes}>Likes {likes}</button>
+    <main>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Read <Link href="/posts/first-post">This new page</Link>
         </h1>
 
         <p className={styles.description}>
